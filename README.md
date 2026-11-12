@@ -33,6 +33,8 @@ The local tool uses the upstream 128 × 128 HSQC encoding and candidate search. 
 .\Open_DeepSAT.bat "C:\Data\sample.tsv" --channel 2 --mw 355 --top 20
 ```
 
+See [Troubleshooting](TROUBLESHOOTING.md) for example runs, setup checks, and details to save when a run fails.
+
 ## Set up another copy
 
 Clone the repository with its `upstream/` submodule. In PowerShell, run the setup script with Python 3.11 and the Windows `py` launcher available. It creates a local virtual environment, installs the dependencies, and retrieves the two author models and database (about 1.5 GB total).
