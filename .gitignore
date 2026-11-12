@@ -1,0 +1,8 @@
+.venv/
+.python-path
+__pycache__/
+assets/
+results/
+/inputs/*
+!/inputs/templates/
+!/inputs/published_hsqc/
