@@ -2,6 +2,14 @@
 
 Run DeepSAT on Windows with the authors’ trained models and reference database. Peak lists, inference, candidate ranking, and structure drawings stay on this computer. Setup downloads the author assets once. The original code and examples are in `upstream/`, at DeepSAT commit `e50336bc1574a966c2c7831110cfc99b0e8401a3`.
 
+## Install on Windows
+
+1. On GitHub, select **Code → Download ZIP**, then extract the entire ZIP to a writable folder. A Git clone works too.
+2. Double-click `Install_DeepSAT.bat` in the extracted folder. Keep the window open until it says **DeepSAT is ready**. The installer retrieves the upstream source if needed, creates a local Python environment, installs the dependencies, and downloads the two models and reference database (about 1.5 GB of model and reference data).
+3. Double-click `Open_DeepSAT.bat`. Select **Normal HSQC** or **Edited HSQC**, click **Load example**, and then click **Run DeepSAT**. After setup, analyses can run offline.
+
+The installer targets 64-bit Windows with internet access for setup. If it cannot find 64-bit Python 3.11, it tries to install it for the current user with WinGet. If WinGet is unavailable or fails, install [64-bit Python 3.11](https://www.python.org/downloads/windows/) with the Python launcher and Tcl/Tk enabled, then rerun the installer.
+
 ## Run an analysis
 
 1. Double-click `Open_DeepSAT.bat`.
@@ -35,17 +43,13 @@ The local tool uses the upstream 128 × 128 HSQC encoding and candidate search. 
 
 See [Troubleshooting](TROUBLESHOOTING.md) for example runs, setup checks, and details to save when a run fails.
 
-## Set up another copy
-
-Clone the repository with its `upstream/` submodule. In PowerShell, run the setup script with Python 3.11 and the Windows `py` launcher available. It creates a local virtual environment, installs the dependencies, and retrieves the two author models and database (about 1.5 GB total).
+## Install from PowerShell
 
 ```powershell
 git clone --recurse-submodules https://github.com/trinhtacdat/DeepSAT_NMR.git
 cd DeepSAT_NMR
-.\Setup-DeepSAT.ps1
+.\Install_DeepSAT.bat
 ```
-
-If you already cloned the repository, run `git submodule update --init` from the project root before setup.
 
 To use an existing Python environment with the packages in `requirements.txt` and Tkinter installed, supply its executable.
 

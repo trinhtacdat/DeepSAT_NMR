@@ -17,8 +17,8 @@ Successful runs print `Result folder:` and write `candidates.csv`, `hsqc.png`, a
 
 | Symptom | Check |
 | --- | --- |
-| The launcher says setup is required or the GUI closes immediately | Check that the Python executable in `.python-path` still exists. Run `Setup-DeepSAT.ps1` again if the environment moved. Try the command-line example to see the error in PowerShell. |
-| `No module named 'SMART_3'` or a bundled example is missing | Run `git submodule update --init` from the project folder. The pinned upstream revision is `e50336bc1574a966c2c7831110cfc99b0e8401a3`. |
+| The launcher says setup is required or the GUI closes immediately | Rerun `Install_DeepSAT.bat`. The default interpreter is `.venv\Scripts\python.exe`. If you used `-Python`, check that the executable recorded in `.python-path` still exists. Try the command-line example to see the error in PowerShell. |
+| `No module named 'SMART_3'` or a bundled example is missing | Rerun the installer to retrieve the pinned upstream source. If it reports an incomplete folder, use `git submodule update --init` for a Git clone or extract a fresh copy of the ZIP and rerun the installer there. |
 | A model or database is missing, or setup reports a download error | Check `Get-Command curl.exe` and rerun setup. Setup verifies the size and SHA-256 of each asset and reuses verified files. Record the asset name and the first `Asset setup failed` message if the error repeats. |
 | TensorFlow, Keras, or another package fails to import or load | Check the interpreter and installed packages using the commands below. Compare the installed versions with `requirements.txt`. |
 | A bundled example works but a sample fails peak validation | Compare the sample header with the template for the selected mode. Use numeric `1H` and `13C` shifts in ppm. Edited HSQC also requires signed `Intensity` values. Check the run log for the reported row or excluded peak count. |
@@ -27,7 +27,10 @@ Successful runs print `Result folder:` and write `candidates.csv`, `hsqc.png`, a
 To check the interpreter and core imports after setup, run the following from the project folder.
 
 ```powershell
-$deepSatPython = (Get-Content -LiteralPath .python-path -Raw).Trim()
+$deepSatPython = '.\.venv\Scripts\python.exe'
+if (Test-Path -LiteralPath .python-path) {
+    $deepSatPython = (Get-Content -LiteralPath .python-path -Raw).Trim()
+}
 Test-Path -LiteralPath $deepSatPython
 & $deepSatPython --version
 & $deepSatPython -m pip check
