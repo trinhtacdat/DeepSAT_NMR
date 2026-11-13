@@ -55,4 +55,8 @@ To use an existing Python environment with the packages in `requirements.txt` an
 
 The author assets are the February 2021 model releases and the `DB_010621_SM3.json` reference database. [Upstream model download script](https://github.com/mwang87/DeepSAT/blob/e50336bc1574a966c2c7831110cfc99b0e8401a3/Classifier/models_folder/models/get_models.sh) · [Upstream database download script](https://github.com/mwang87/DeepSAT/blob/e50336bc1574a966c2c7831110cfc99b0e8401a3/Classifier/get_database.sh)
 
-For the model, benchmark, and peak preparation workflow, see the authors’ paper and documentation. [DeepSAT paper](https://doi.org/10.1186/s13321-023-00738-4) · [Upstream usage guide](https://github.com/mwang87/DeepSAT/blob/e50336bc1574a966c2c7831110cfc99b0e8401a3/Documentation/docs/Usage.md)
+For peak preparation and the original workflow, see the [upstream usage guide](https://github.com/mwang87/DeepSAT/blob/e50336bc1574a966c2c7831110cfc99b0e8401a3/Documentation/docs/Usage.md).
+
+## Reference
+
+Kim, H. W., Zhang, C., Reher, R., et al. (2023). DeepSAT: Learning Molecular Structures from Nuclear Magnetic Resonance Data. *Journal of Cheminformatics*, 15, 71. [DOI: 10.1186/s13321-023-00738-4](https://doi.org/10.1186/s13321-023-00738-4) · [Open-access full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10406729/)
